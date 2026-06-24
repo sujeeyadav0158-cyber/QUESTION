@@ -13,27 +13,39 @@ private:
 public:
     void get_data()
     {
-        cout << "Enter the Student Name: ";
-        cin>>name;
+        cout << "Enter Student Name: ";
+        getline(cin, name);
 
         cout << "Enter Roll Number: ";
         cin >> rollNo;
 
-
         Tmarks = 0;
 
-        cout << "Enter 5 Subjects marks:"<<endl;
-        for (int i = 0; i < 5; i++)
+        cout << "Enter 5 Subjects Marks:" << endl;
+
+    for(int i = 0; i < 5; i++)
+    {
+    while(true)
+    {
+        cout << "Enter marks of subject " << i + 1 << ": ";
+        
+        if(cin >> marks[i] && marks[i] >= 0 && marks[i] <= 100)
         {
-            cout << "Subject " << i + 1 << ": "<<endl;
-            cin >> marks[i];
-            Tmarks = Tmarks + marks[i];
+            Tmarks += marks[i];
+            break;
         }
+
+        cout << "Invalid Marks! Please enter marks between 0 and 100.\n";   
+
+        cin.clear();
+        cin.ignore(1000, '\n');
     }
+  }
+}
 
     void calculation()
     {
-    p = Tmarks / 5;
+        p = Tmarks / 5;
 
         if (p >= 90)
             grade = 'A';
@@ -49,11 +61,11 @@ public:
 
     void display()
     {
-        cout << " Student Details :"<<endl;
+        cout << "\nStudent Details :" << endl;
         cout << "Name: " << name << endl;
         cout << "Roll No.: " << rollNo << endl;
         cout << "Total Marks: " << Tmarks << endl;
-        cout << "Percentage : " << p  << "%" << endl;
+        cout << "Percentage: " << p << "%" << endl;
         cout << "Grade: " << grade << endl;
     }
 };

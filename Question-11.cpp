@@ -27,12 +27,13 @@ public:
 
         if (amount <= balance)
         {
-            balance  =balance - amount;
+            balance = balance - amount;
             cout << " Withdrawal Successful" << endl;
         }
         else
         {
-            cout << "  Insufficient Balance" << endl;
+            cout << "Insufficient Balance" << endl;
+          
         }
     }
 

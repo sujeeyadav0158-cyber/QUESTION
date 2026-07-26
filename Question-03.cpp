@@ -11,7 +11,7 @@ public:
     
     Employee()
     {
-        emp_Id = 001;
+        emp_Id = 1;
         emp_name = "Sujeet kumar";
         salary = 100000;
 
@@ -57,9 +57,11 @@ int main()
     e2.display();
 
     
-    Employee e3(e2); 
-;
+    Employee e3 = e2;
     e3.display();
+
+//     Employee e4 = e2; 
+//    e4.display();
 
     return 0;
 }

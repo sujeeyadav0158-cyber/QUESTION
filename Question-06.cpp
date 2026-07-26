@@ -10,24 +10,20 @@ private:
 public:
     void getData()
     {
-        cout << "Enter Employee ID: "<<endl;
+        cout << "Enter Employee ID: ";
         cin >> empId;
-
-        cout << "Enter Employee Name: "<<endl;
+        cout << "Enter Employee Name: ";
         cin >> name;
     }
-
     int getEmpId()
     {
         return empId;
     }
-
     string getName()
     {
         return name;
     }
 };
-
 class Manager : public Employee
 {
 private:
@@ -36,12 +32,13 @@ private:
 public:
     void setSalary()
     {
-        salary = 80000;
+        cout << "Enter Manager Salary: ";
+        cin >> salary;
     }
 
     void display()
     {
-        cout << "\n Manager Details : " << endl;
+        cout << "\nManager Details" << endl;
         cout << "ID : " << getEmpId() << endl;
         cout << "Name : " << getName() << endl;
         cout << "Salary : " << salary << endl;
@@ -56,15 +53,16 @@ private:
 public:
     void setSalary()
     {
-        salary = 60000;
+        cout << "Enter Developer Salary: ";
+        cin >> salary;
     }
 
     void display()
     {
-        cout << "\n Developer Details: " << endl;
-        cout << "ID   : " << getEmpId() << endl;
+        cout << "\nDeveloper Details" << endl;
+        cout << "ID  : " << getEmpId() << endl;
         cout << "Name : " << getName() << endl;
-        cout << " : "<<salary<<endl;
+        cout << "Salary : " << salary << endl;
     }
 };
 
@@ -76,12 +74,13 @@ private:
 public:
     void setSalary()
     {
-        salary = 30000;
+        cout << "Enter Clerk Salary: ";
+        cin >> salary;
     }
 
     void display()
     {
-        cout << " \n Clerk Details " << endl;
+        cout << "\nClerk Details" << endl;
         cout << "ID     : " << getEmpId() << endl;
         cout << "Name   : " << getName() << endl;
         cout << "Salary : " << salary << endl;
@@ -90,19 +89,18 @@ public:
 
 int main()
 {
-
     Manager m;
     cout << "Enter Manager Information" << endl;
     m.getData();
     m.setSalary();
 
     Developer d;
-    cout << "\n Enter Developer Information : " << endl;
+    cout << "\nEnter Developer Information" << endl;
     d.getData();
     d.setSalary();
 
     Clerk c;
-    cout << "\n Enter Clerk Information: " << endl;
+    cout << "\nEnter Clerk Information" << endl;
     c.getData();
     c.setSalary();
 

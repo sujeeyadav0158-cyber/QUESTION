@@ -32,8 +32,8 @@ public:
 
     void showResult()
     {
-        cout << "\nStudent: " << name;
-        cout << "\nMarks Obtained: " << score << "/2" << endl;
+        cout << " Student Name : " << name<<endl;
+        cout << "Marks Obtained: " << score << "/2" << endl;
     }
 };
 

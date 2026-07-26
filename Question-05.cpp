@@ -30,10 +30,10 @@ int main()
 {
     Complex c1, c2, c3;
 
-    cout << "Enter First Complex Number:\n";
+    cout << "Enter First Complex Number: "<<endl;
     c1.getData();
 
-    cout << "Enter Second Complex Number:\n";
+    cout << "Enter Second Complex Number: "<<endl;
     c2.getData();
 
     c3 = c1 + c2;

@@ -51,7 +51,7 @@ int main()
     p = &u;
     (*p).pay();
 
-    p = &n;
+    p= &n;
     (*p).pay();
 
     return 0;

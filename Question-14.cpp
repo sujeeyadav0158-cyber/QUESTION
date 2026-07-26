@@ -49,7 +49,7 @@ int main()
     ProductB b;
 
     a.setPrice();
-    b.setPrice();
+    b.setPrice( );
 
     compare(a, b);
 

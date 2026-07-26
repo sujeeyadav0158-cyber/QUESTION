@@ -1,114 +1,91 @@
 #include <iostream>
 using namespace std;
+
 class Account
 {
-private:
+protected:
     int accNo;
     string name;
     double balance;
 
 public:
-    Account(int a, string n, double b)
+    void getData()
     {
-        accNo = a;
-        name = n;
-        balance = b;
+        cout << "Enter Account Number: ";
+        cin >> accNo;
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Balance: ";
+        cin >> balance;
     }
-
-    void display()
+    void showData()
     {
-        cout << " \n Account Number: " << accNo << endl;
-        cout << "Account Holder: " << name << endl;
-        cout << "Balance: " << balance << endl;
-    }
-
-    double getBalance()
-    {
-        return balance;
-    }
-
-    void setBalance(double b)
-    {
-        balance = b;
+        cout << "Account Number = " << accNo << endl;
+        cout << "Name = " << name << endl;
+        cout << "Balance = " << balance << endl;
     }
 };
-
 class SavingsAccount : public Account
 {
+    float interest;
+
 public:
-    SavingsAccount(int a, string n, double b)
-        : Account(a, n, b)
+    void calculateInterest()
     {
-    }
+        interest = balance * 0.05;
 
-    void addInterest(double rate)
-    {
-        double bal = getBalance();
-        bal = bal + (bal * rate / 100);
-        setBalance(bal);
-
-        cout << "\nBalance after Interest: "<< getBalance() << endl;
+        cout << "Interest = " << interest << endl;
     }
 };
 
 class CurrentAccount : public Account
 {
+    float overdraft;
+
 public:
-    CurrentAccount(int a, string n, double b) : Account(a, n, b)
+    void checkOverdraft()
     {
-    }
+        overdraft = 5000;
 
-    void withdraw(double amount)
-    {
-        double bal = getBalance();
-
-        if (amount <= bal)
-        {
-            bal = bal - amount;
-            setBalance(bal);
-
-            cout << "\nWithdrawal Successful" << endl;
-            cout << "Remaining Balance: " << getBalance() << endl;
-        }
-        else
-        {
-            cout << "Insufficient Balance!" << endl;
-        }
+        cout << "Overdraft Limit = " << overdraft << endl;
     }
 };
 
 class FixedDepositAccount : public Account
 {
+    float rate;
+    float maturity;
+
 public:
-    FixedDepositAccount(int a, string n, double b)
-        : Account(a, n, b) {}
-
-    void calculateMaturity(double rate, int years)
+    void calculateMaturity()
     {
-        double maturity =
-            getBalance() + (getBalance() * rate * years / 100);
+        rate = 0.07;
 
-        cout << "\nMaturity Amount: "<< maturity << endl;
+        maturity = balance + (balance * rate);
+
+        cout << "Maturity Amount = " << maturity << endl;
     }
 };
-
 int main()
 {
-    SavingsAccount s(00001, "Sujeet", 10000);
-    CurrentAccount c(00002, "Ajeet", 15000);
-    FixedDepositAccount f(00003, "Sumit", 50000);
+    SavingsAccount s;
+    cout << "\nSavings Account" << endl;
+    s.getData();
+    s.showData();
+    s.calculateInterest();
 
-    cout << "\n Savings Account " << endl;
-    s.display();
-    s.addInterest(5);
+    CurrentAccount c;
+    cout << "\nCurrent Account" << endl;
+    c.getData();
+    c.showData();
+    c.checkOverdraft();
 
-    cout << "\n Current Account  " << endl;
-    c.display();
-    c.withdraw(3000);
+    FixedDepositAccount f;
 
-    cout << " Fixed Deposit Account: " << endl;
-    f.display();
-    f.calculateMaturity(7, 3);
+    cout << "\nFixed Deposit Account" << endl;
+    f.getData();
+    f.showData();
+    f.calculateMaturity();
 
     return 0;
 }

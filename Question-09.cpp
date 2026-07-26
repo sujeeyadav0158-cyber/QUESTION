@@ -52,7 +52,7 @@ int main()
     (*i).calculatePremium();
 
     i = &l;
-    (*i).calculatePremium();
+    (*i).calculatePremium( );
 
     return 0;
 }
